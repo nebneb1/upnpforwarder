@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://duv2b833ljtas"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6tbv5"]
+
+[sub_resource type="Theme" id="Theme_2c4cf"]
+/colors/aaaa = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6tbv5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -136.0
+offset_right = 338.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 37.39)
+layout_mode = 2
+text = "25565"
+placeholder_text = "Enter port"
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2c4cf")
+text = "Start Forwarding"
+
+[node name="stop" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Stop Forwarding"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25.34)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Please leave this application open while port is in use"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/stop" to="." method="_on_stop_pressed"]
